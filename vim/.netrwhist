@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/Frazer/.vim/bundle/mustang-vim'
+let g:netrw_dirhist_2='/home/Frazer/.vim/bundle'
+let g:netrw_dirhist_3='/home/Frazer/.vim'
+let g:netrw_dirhist_4='/home/Frazer/.vim/bundle'
+let g:netrw_dirhist_5='/etc/xdg/awesome'
+let g:netrw_dirhist_6='/home/Frazer/.config/awesome'
+let g:netrw_dirhist_7='/home/Frazer/.config/awesome/themes'
