@@ -1,21 +1,11 @@
 """ Global VIM settings. """
 
-""" This must be first, because it changes other options as side effect. """
+""" Vundle settings. """
 set nocompatible
-
-""" As directed by pathogen: """
-execute pathogen#infect()
-
-
-""" Colourschemes """
-" Set the 'Mustang' colourscheme if available.
-if &t_Co >= 256 || has("gui_running")
-   colorscheme Tomorrow-Night-Bright
-endif
-" Switch syntax highlighting on, when the terminal has colours.
-if &t_Co > 2 || has("gui_running")
-   syntax on
-endif
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
 
 
 """ Hide GUI Widgets """
@@ -76,3 +66,20 @@ map <right> <nop>
 map <space> za
 
 cmap w!! w sudo tee % >/dev/null
+
+Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'nvie/vim-togglemouse'
+
+
+""" Colourschemes """
+" Set the 'Mustang' colourscheme if available.
+if &t_Co >= 256 || has("gui_running")
+   colorscheme Tomorrow-Night-Bright
+endif
+" Switch syntax highlighting on, when the terminal has colours.
+if &t_Co > 2 || has("gui_running")
+   syntax on
+endif
+
+
