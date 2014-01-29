@@ -67,6 +67,7 @@ map <space> za
 
 cmap w!! w sudo tee % >/dev/null
 
+Bundle 'Valloric/YouCompleteMe'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nvie/vim-togglemouse'
