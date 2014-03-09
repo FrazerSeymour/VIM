@@ -71,6 +71,8 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nvie/vim-togglemouse'
+Bundle 'Shougo/vimshell'
+Bundle 'Shougo/vimproc'
 
 
 """ Colourschemes """
