@@ -73,6 +73,8 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'nvie/vim-togglemouse'
 Bundle 'Shougo/vimshell'
 Bundle 'Shougo/vimproc'
+Bundle 'Shougo/unite.vim'
+Bundle 'vim-perl/vim-perl'
 
 
 """ Colourschemes """
