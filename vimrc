@@ -48,10 +48,6 @@ set incsearch		" show search matches as you type
 :filetype plugin indent on	" Activate filetypes.
 set spell spelllang=en_gb	" Spellcheck.
 
-if has('autocmd')
-  autocmd filetype html, xml set listchars-=tab:>.
-endif
-
 
 
 
