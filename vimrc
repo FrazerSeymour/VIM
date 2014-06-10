@@ -23,6 +23,9 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'nvie/vim-togglemouse'
 Bundle 'vim-perl/vim-perl'
 Bundle 'b4winckler/vim-objc'
+Bundle 'jelera/vim-javascript-syntax'
+Bundle 'othree/javascript-libraries-syntax.vim'
+Bundle 'vim-scripts/JavaScript-Indent'
 
 
 
