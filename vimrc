@@ -5,34 +5,27 @@
 
 
 
-"""""""""""""""""""""""
-""" Basic Operation """
-"""""""""""""""""""""""
-
+" Basic Operation {{{
 set history=1000            " Remember more commands and search history.
 set undolevels=1000         " Use many mucho levels of undo.
 set visualbell              " Don't beep.
 set noerrorbells            " Don't beep.
 set nobackup                " No backup file.
 set noswapfile              " No backup file.
+" }}}
 
 
 
-
-"""""""""""""""""""""""
-""" Spaces and Tabs """
-"""""""""""""""""""""""
-
+" Spaces and Tabs {{{
 set tabstop=4        " Tab width is four.
 set softtabstop=4    " Tab width is four.
 set expandtab        " Tabs are spaces.
+" }}}
 
 
 
 
-"""""""""""""""""
-""" Searching """
-"""""""""""""""""
+" Searching {{{
 set ignorecase  " Ignore case when searching.
 set smartcase   " Ignore case if search pattern is all lowercase, case-sensitive otherwise.
 set hlsearch    " Highlight search terms.
@@ -40,13 +33,12 @@ set incsearch   " Show search matches as you type.
 
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
+" }}}
 
 
 
 
-""""""""""""""""""
-""" Appearance """
-""""""""""""""""""
+" Appearance {{{
 set title                   " Change the terminal's title.
 set number                  " Show line numbers.
 set wrap                    " Don't wrap lines.
@@ -70,13 +62,12 @@ endif
 if &t_Co >= 256 || has("gui_running")
    colorscheme Tomorrow-Night-Bright
 endif
+" }}}
 
 
 
 
-"""""""""""""""
-""" Folding """
-"""""""""""""""
+" Folding {{{
 set foldenable          " Enable folding.
 set foldlevelstart=10   " Open most folds by default.
 set foldnestmax=10      " 10 nested fold max.
@@ -84,13 +75,12 @@ set foldmethod=indent   " fold based on indent level
 
 " space open/closes folds
 nnoremap <space> za
+" }}}
 
 
 
 
-""""""""""""""""
-""" Movement """
-""""""""""""""""
+" Movement {{{
 " Move vertically by visual line
 nnoremap j gj
 nnoremap k gk
@@ -109,13 +99,12 @@ map <right> <nop>
 
 " Highlight last inserted text
 nnoremap gV `[v`]
+" }}}
 
 
 
 
-"""""""""""""""""
-""" Shortcuts """
-"""""""""""""""""
+" Shortcuts {{{
 " Command is now ';'.
 nnoremap ; :
 
@@ -127,12 +116,12 @@ inoremap jk <esc>
 
 " save session
 nnoremap <leader>s :mksession<CR>
+" }}}
 
 
 
 
-""""""""""""""""""""
-""" Organization """
-""""""""""""""""""""
+" Organization {{{
 set modelines=1
+" }}}
 " vim:foldmethod=marker:foldlevel=0"
