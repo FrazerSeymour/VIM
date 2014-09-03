@@ -5,6 +5,24 @@
 
 
 
+
+" Vundle {{{
+set nocompatible
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+call vundle#end()
+filetype plugin indent on
+" }}}
+
+
+
 " Basic Operation {{{
 set history=1000            " Remember more commands and search history.
 set undolevels=1000         " Use many mucho levels of undo.
@@ -124,4 +142,4 @@ nnoremap <leader>s :mksession<CR>
 " Organization {{{
 set modelines=1
 " }}}
-" vim:foldmethod=marker:foldlevel=0"
+" vim:foldmethod=marker:foldlevel=0
