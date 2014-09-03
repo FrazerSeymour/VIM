@@ -38,6 +38,9 @@ set smartcase   " Ignore case if search pattern is all lowercase, case-sensitive
 set hlsearch    " Highlight search terms.
 set incsearch   " Show search matches as you type.
 
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
 
 
 
@@ -68,3 +71,16 @@ if &t_Co >= 256 || has("gui_running")
    colorscheme Tomorrow-Night-Bright
 endif
 
+
+
+
+"""""""""""""""
+""" Folding """
+"""""""""""""""
+set foldenable          " Enable folding.
+set foldlevelstart=10   " Open most folds by default.
+set foldnestmax=10      " 10 nested fold max.
+set foldmethod=indent   " fold based on indent level
+
+" space open/closes folds
+nnoremap <space> za
