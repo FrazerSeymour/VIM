@@ -11,14 +11,10 @@
 
 set history=1000            " Remember more commands and search history.
 set undolevels=1000         " Use many mucho levels of undo.
-set title                   " Change the terminal's title.
 set visualbell              " Don't beep.
 set noerrorbells            " Don't beep.
 set nobackup                " No backup file.
 set noswapfile              " No backup file.
-set wrap                    " Don't wrap lines.
-:filetype plugin indent on  " Activate filetypes.
-set spell spelllang=en_gb   " Spellcheck.
 
 
 
@@ -42,3 +38,18 @@ set smartcase   " Ignore case if search pattern is all lowercase, case-sensitive
 set hlsearch    " Highlight search terms.
 set incsearch   " Show search matches as you type.
 
+
+
+
+""""""""""""""""""
+""" Appearance """
+""""""""""""""""""
+set title                   " Change the terminal's title.
+set number                  " Show line numbers.
+set wrap                    " Don't wrap lines.
+set cursorline              " Highlight current line.
+set showmatch               " Highlight matching [{()}].
+set wildmenu                " Visual autocomplete for command menu.
+set lazyredraw              " Redraw only when we need to.
+filetype plugin indent on   " Activate filetypes.
+set spell spelllang=en_gb   " Spellcheck.
