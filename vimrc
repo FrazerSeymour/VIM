@@ -127,3 +127,12 @@ inoremap jk <esc>
 
 " save session
 nnoremap <leader>s :mksession<CR>
+
+
+
+
+""""""""""""""""""""
+""" Organization """
+""""""""""""""""""""
+set modelines=1
+" vim:foldmethod=marker:foldlevel=0"
