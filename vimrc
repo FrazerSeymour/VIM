@@ -9,21 +9,36 @@
 """ Basic Operation """
 """""""""""""""""""""""
 
-set history=1000        " remember more commands and search history
-set undolevels=1000     " use many mucho levels of undo
-set title               " change the terminal's title
-set visualbell          " don't beep
-set noerrorbells        " don't beep
-set nobackup            " no backup file		
-set noswapfile          " no backup file
-set tabstop=4           " Tab is four spaces.
-set wrap                " don't wrap lines
+set history=1000            " Remember more commands and search history.
+set undolevels=1000         " Use many mucho levels of undo.
+set title                   " Change the terminal's title.
+set visualbell              " Don't beep.
+set noerrorbells            " Don't beep.
+set nobackup                " No backup file.
+set noswapfile              " No backup file.
+set wrap                    " Don't wrap lines.
+:filetype plugin indent on  " Activate filetypes.
+set spell spelllang=en_gb   " Spellcheck.
 
-" Searching "
-set ignorecase          " ignore case when searching
-set smartcase           " ignore case if search pattern is all lowercase, case-sensitive otherwise
-set hlsearch            " highlight search terms
-set incsearch           " show search matches as you type
 
-:filetype plugin indent on      " Activate filetypes.
-set spell spelllang=en_gb       " Spellcheck.
+
+
+"""""""""""""""""""""""
+""" Spaces and Tabs """
+"""""""""""""""""""""""
+
+set tabstop=4        " Tab width is four.
+set softtabstop=4    " Tab width is four.
+set expandtab        " Tabs are spaces.
+
+
+
+
+"""""""""""""""""
+""" Searching """
+"""""""""""""""""
+set ignorecase  " Ignore case when searching.
+set smartcase   " Ignore case if search pattern is all lowercase, case-sensitive otherwise.
+set hlsearch    " Highlight search terms.
+set incsearch   " Show search matches as you type.
+
