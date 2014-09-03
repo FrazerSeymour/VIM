@@ -109,3 +109,21 @@ map <right> <nop>
 
 " Highlight last inserted text
 nnoremap gV `[v`]
+
+
+
+
+"""""""""""""""""
+""" Shortcuts """
+"""""""""""""""""
+" Command is now ';'.
+nnoremap ; :
+
+" Leader is now ','.
+let mapleader=","
+
+" jk is escape
+inoremap jk <esc>
+
+" save session
+nnoremap <leader>s :mksession<CR>
