@@ -6,8 +6,23 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" let Vundle manage Vundle, required
+" Let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
+
+" Colour Schemes
+Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Plugin 'altercation/vim-colors-solarized'
+
+" Shougo stuff
+Plugin "Shougo/neocomplete.vim"
+Plugin 'Shougo/vimshell'
+Plugin 'Shougo/vimproc'
+Plugin 'Shougo/unite.vim'
+
+" Web Dev
+Plugin 'mattn/emmet-vim'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'othree/javascript-libraries-syntax.vim'
 
 call vundle#end()
 filetype plugin indent on
