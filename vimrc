@@ -14,7 +14,7 @@ Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Plugin 'altercation/vim-colors-solarized'
 
 " Shougo stuff
-Plugin "Shougo/neocomplete.vim"
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/vimshell'
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/unite.vim'
@@ -129,6 +129,33 @@ inoremap jk <esc>
 
 " save session
 nnoremap <leader>s :mksession<CR>
+" }}}
+
+" Autogroups {{{
+augroup configgroup
+    autocmd!
+    autocmd VimEnter * highlight clear SignColumn
+
+    autocmd FileType html, js setlocal tabstop=2
+    autocmd FileType html, js setlocal shiftwidth=2
+    autocmd FileType html, js setlocal softtabstop=2
+    autocmd FileType html, js setlocal foldlevel=2
+
+    autocmd FileType python setlocal commentstring=#\ %s
+    autocmd FileType python setlocal list
+    autocmd FileType python setlocal listchars=tab:>.,trail:.,extends:#,nbsp:.
+    autocmd FileType python :call Margin()
+
+    autocmd BufEnter Makefile setlocal noexpandtab
+augroup END
+
+function! Margin() 
+    if exists('+colorcolumn')
+        setlocal colorcolumn=80
+    else
+        au BufWinEnter *.py let w:m2=matchadd('ErrorMsg', '\%.80v.\+', -1)
+    endif
+endfunc
 " }}}
 
 " Organization {{{
