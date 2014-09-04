@@ -1,11 +1,3 @@
-""""""""""""""""""""""""""""""""
-""""" Global VIM settings. """""
-""""""""""""""""""""""""""""""""
-
-
-
-
-
 " Vundle {{{
 set nocompatible
 filetype off
@@ -21,8 +13,6 @@ call vundle#end()
 filetype plugin indent on
 " }}}
 
-
-
 " Basic Operation {{{
 set history=1000            " Remember more commands and search history.
 set undolevels=1000         " Use many mucho levels of undo.
@@ -32,16 +22,11 @@ set nobackup                " No backup file.
 set noswapfile              " No backup file.
 " }}}
 
-
-
 " Spaces and Tabs {{{
 set tabstop=4        " Tab width is four.
 set softtabstop=4    " Tab width is four.
 set expandtab        " Tabs are spaces.
 " }}}
-
-
-
 
 " Searching {{{
 set ignorecase  " Ignore case when searching.
@@ -52,9 +37,6 @@ set incsearch   " Show search matches as you type.
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 " }}}
-
-
-
 
 " Appearance {{{
 set title                   " Change the terminal's title.
@@ -82,9 +64,6 @@ if &t_Co >= 256 || has("gui_running")
 endif
 " }}}
 
-
-
-
 " Folding {{{
 set foldenable          " Enable folding.
 set foldlevelstart=10   " Open most folds by default.
@@ -94,9 +73,6 @@ set foldmethod=indent   " fold based on indent level
 " space open/closes folds
 nnoremap <space> za
 " }}}
-
-
-
 
 " Movement {{{
 " Move vertically by visual line
@@ -119,9 +95,6 @@ map <right> <nop>
 nnoremap gV `[v`]
 " }}}
 
-
-
-
 " Shortcuts {{{
 " Command is now ';'.
 nnoremap ; :
@@ -135,9 +108,6 @@ inoremap jk <esc>
 " save session
 nnoremap <leader>s :mksession<CR>
 " }}}
-
-
-
 
 " Organization {{{
 set modelines=1
