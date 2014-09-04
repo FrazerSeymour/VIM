@@ -38,9 +38,15 @@ set noswapfile              " No backup file.
 " }}}
 
 " Spaces and Tabs {{{
-set tabstop=4        " Tab width is four.
-set softtabstop=4    " Tab width is four.
-set expandtab        " Tabs are spaces.
+set tabstop=4       " Tab width is four.
+set softtabstop=4   " Tab width is four.
+set expandtab       " Tabs are spaces.
+set autoindent      " Indent automatically.
+set copyindent      " Copy the previous indentation when autoindenting.
+set shiftwidth=4    " Number of spaces to use for autoindenting.
+set shiftround      " Use multiple of shiftwidth when indenting with '<' and '>'.
+set smarttab        " Insert tabs on the start of a line according to shiftwidth, not tabstop
+set backspace=indent,eol,start  " Allow backspacing over everything in insert mode.
 " }}}
 
 " Searching {{{
@@ -81,6 +87,7 @@ endif
 
 " Folding {{{
 set foldenable          " Enable folding.
+set foldlevel=1         " One space counts as an indent.
 set foldlevelstart=10   " Open most folds by default.
 set foldnestmax=10      " 10 nested fold max.
 set foldmethod=indent   " fold based on indent level
