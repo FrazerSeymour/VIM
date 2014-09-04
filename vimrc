@@ -56,7 +56,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 " Appearance {{{
 set title                   " Change the terminal's title.
 set number                  " Show line numbers.
-set wrap                    " Don't wrap lines.
+set nowrap                  " Don't wrap lines.
 set cursorline              " Highlight current line.
 set showmatch               " Highlight matching [{()}].
 set wildmenu                " Visual autocomplete for command menu.
