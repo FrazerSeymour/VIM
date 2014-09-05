@@ -11,6 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " Colour Schemes
 Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/colors/'}
+Plugin 'chriskempson/base16-vim'
 Plugin 'altercation/vim-colors-solarized'
 
 " Shougo stuff
