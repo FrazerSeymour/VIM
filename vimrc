@@ -10,7 +10,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 " Colour Schemes
-Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/colors/'}
 Plugin 'altercation/vim-colors-solarized'
 
 " Shougo stuff
