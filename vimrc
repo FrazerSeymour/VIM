@@ -13,6 +13,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'chriskempson/base16-vim'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'vim-scripts/cSyntaxAfter'
 
 " Shougo stuff
 Plugin 'Shougo/neocomplete.vim'
@@ -137,10 +138,10 @@ augroup configgroup
     autocmd!
     autocmd VimEnter * highlight clear SignColumn
 
-    autocmd FileType html, js setlocal tabstop=2
-    autocmd FileType html, js setlocal shiftwidth=2
-    autocmd FileType html, js setlocal softtabstop=2
-    autocmd FileType html, js setlocal foldlevel=2
+    autocmd FileType html setlocal tabstop=2
+    autocmd FileType html setlocal shiftwidth=2
+    autocmd FileType html setlocal softtabstop=2
+    autocmd FileType html setlocal foldlevel=2
 
     autocmd FileType python setlocal commentstring=#\ %s
     autocmd FileType python setlocal list
