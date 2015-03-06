@@ -62,19 +62,19 @@ nnoremap <leader><space> :nohlsearch<CR>
 " }}}
 
 " Appearance {{{
-set title                   " Change the terminal's title.
-set number                  " Show line numbers.
-set nowrap                  " Don't wrap lines.
-set cursorline              " Highlight current line.
-set showmatch               " Highlight matching [{()}].
-set wildmenu                " Visual autocomplete for command menu.
-set lazyredraw              " Redraw only when we need to.
-filetype plugin indent on   " Activate filetypes.
-set spell spelllang=en_gb   " Spellcheck.
-set guifont=Source_Code_Pro	" Change font.
-set guioptions-=m           " \
-set guioptions-=T           "  Hide GUI Widgets
-set guioptions-=r           " /
+set title                       " Change the terminal's title.
+set number                      " Show line numbers.
+set nowrap                      " Don't wrap lines.
+set cursorline                  " Highlight current line.
+set showmatch                   " Highlight matching [{()}].
+set wildmenu                    " Visual autocomplete for command menu.
+set lazyredraw                  " Redraw only when we need to.
+filetype plugin indent on       " Activate filetypes.
+set spell spelllang=en_gb       " Spellcheck.
+set guifont=SourceCodePro,mono " Change font.
+set guioptions-=m               " \
+set guioptions-=T               "  Hide GUI Widgets
+set guioptions-=r               " /
 
 " Switch syntax highlighting on, when the terminal has colours.
 if &t_Co > 2 || has("gui_running")
