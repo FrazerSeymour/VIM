@@ -149,6 +149,8 @@ augroup configgroup
     autocmd FileType python :call Margin()
 
     autocmd BufEnter Makefile setlocal noexpandtab
+
+    autocmd FileType cobol setlocal nospell
 augroup END
 
 function! Margin() 
