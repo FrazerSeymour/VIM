@@ -26,6 +26,9 @@ Plugin 'mattn/emmet-vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'othree/javascript-libraries-syntax.vim'
 
+" Git
+Plugin 'tpope/vim-fugitive'
+
 call vundle#end()
 filetype plugin indent on
 " }}}
