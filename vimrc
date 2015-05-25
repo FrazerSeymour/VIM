@@ -18,6 +18,7 @@ Plugin 'altercation/vim-colors-solarized'
 Plugin 'vim-scripts/cSyntaxAfter'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'mustache/vim-mustache-handlebars'
 
 " Shougo stuff
 Plugin 'Shougo/neocomplete.vim'
