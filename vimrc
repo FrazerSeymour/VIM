@@ -13,7 +13,11 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'chriskempson/base16-vim'
 Plugin 'altercation/vim-colors-solarized'
+
+" Syntax Highlighting
 Plugin 'vim-scripts/cSyntaxAfter'
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'othree/javascript-libraries-syntax.vim'
 
 " Shougo stuff
 Plugin 'Shougo/neocomplete.vim'
@@ -23,8 +27,6 @@ Plugin 'Shougo/unite.vim'
 
 " Web Dev
 Plugin 'mattn/emmet-vim'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'othree/javascript-libraries-syntax.vim'
 
 " Git
 Plugin 'tpope/vim-fugitive'
