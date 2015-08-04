@@ -26,8 +26,9 @@ Plugin 'Shougo/vimshell'
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/unite.vim'
 
-" Web Dev
+" Clever Stuff
 Plugin 'mattn/emmet-vim'
+Plugin 'terryma/vim-multiple-cursors'
 
 " Git
 Plugin 'tpope/vim-fugitive'
@@ -229,6 +230,20 @@ endif
 "let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+
+" Called once right before you start selecting multiple cursors
+function! Multiple_cursors_before()
+  if exists(':NeoCompleteLock')==2
+    exe 'NeoCompleteLock'
+  endif
+endfunction
+
+" Called once only when the multiple selection is canceled (default <Esc>)
+function! Multiple_cursors_after()
+  if exists(':NeoCompleteUnlock')==2
+    exe 'NeoCompleteUnlock'
+  endif
+endfunction
 " }}}
 
 " Organization {{{
