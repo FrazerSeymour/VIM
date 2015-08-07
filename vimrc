@@ -26,6 +26,10 @@ Plugin 'Shougo/vimshell'
 Plugin 'Shougo/vimproc'
 Plugin 'Shougo/unite.vim'
 
+" Python
+Plugin 'klen/python-mode'
+Plugin 'davidhalter/jedi-vim'
+
 " Clever Stuff
 Plugin 'mattn/emmet-vim'
 Plugin 'terryma/vim-multiple-cursors'
@@ -150,7 +154,6 @@ augroup configgroup
     autocmd FileType html,javascript,html.handlebars setlocal softtabstop=2
     autocmd FileType html,javascript,html.handlebars setlocal foldlevel=2
 
-    autocmd FileType python setlocal commentstring=#\ %s
     autocmd FileType python setlocal list
     autocmd FileType python setlocal listchars=tab:>.,trail:.,extends:#,nbsp:.
     autocmd FileType python :call Margin()
@@ -214,10 +217,19 @@ inoremap <expr><C-y>  neocomplete#close_popup()
 inoremap <expr><C-e>  neocomplete#cancel_popup()
 
 " Enable omni completion.
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+
+" Python omni completion
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:pymode_rope=0
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
