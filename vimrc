@@ -16,8 +16,6 @@ Plugin 'altercation/vim-colors-solarized'
 
 " Syntax Highlighting
 Plugin 'vim-scripts/cSyntaxAfter'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'scrooloose/syntastic'
 
@@ -30,6 +28,11 @@ Plugin 'Shougo/unite.vim'
 " Python
 Plugin 'klen/python-mode'
 Plugin 'davidhalter/jedi-vim'
+
+" JavaScript
+Plugin 'jelera/vim-javascript-syntax'
+Plugin 'othree/javascript-libraries-syntax.vim'
+Plugin 'marijnh/tern_for_vim'
 
 " Clever Stuff
 Plugin 'mattn/emmet-vim'
@@ -232,6 +235,10 @@ let g:pymode_lint=0
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+
+
+" JavaScript omni completion
+let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
