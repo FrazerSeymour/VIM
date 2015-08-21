@@ -56,6 +56,20 @@ set nobackup                " No backup file.
 set noswapfile              " No backup file.
 " }}}
 
+" Shortcuts {{{
+" Command is now ';'.
+nnoremap ; :
+
+" Leader is now ','.
+let mapleader=","
+
+" jk is escape
+inoremap jk <esc>
+
+" save session
+nnoremap <leader>s :mksession<CR>
+" }}}
+
 " Spaces and Tabs {{{
 set tabstop=4       " Tab width is four.
 set softtabstop=4   " Tab width is four.
@@ -134,20 +148,6 @@ map <right> <nop>
 
 " Highlight last inserted text
 nnoremap gV `[v`]
-" }}}
-
-" Shortcuts {{{
-" Command is now ';'.
-nnoremap ; :
-
-" Leader is now ','.
-let mapleader=","
-
-" jk is escape
-inoremap jk <esc>
-
-" save session
-nnoremap <leader>s :mksession<CR>
 " }}}
 
 " Autogroups {{{
