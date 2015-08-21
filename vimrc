@@ -37,9 +37,11 @@ Plugin 'marijnh/tern_for_vim'
 " Clever Stuff
 Plugin 'mattn/emmet-vim'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'scrooloose/nerdtree'
 
 " Git
 Plugin 'tpope/vim-fugitive'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 call vundle#end()
 filetype plugin indent on
