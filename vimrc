@@ -19,6 +19,7 @@ Plugin 'vim-scripts/cSyntaxAfter'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'othree/javascript-libraries-syntax.vim'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'scrooloose/syntastic'
 
 " Shougo stuff
 Plugin 'Shougo/neocomplete.vim'
@@ -227,6 +228,7 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 " Python omni completion
 autocmd FileType python setlocal omnifunc=jedi#completions
 let g:pymode_rope=0
+let g:pymode_lint=0
 let g:jedi#completions_enabled = 0
 let g:jedi#auto_vim_configuration = 0
 let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
@@ -251,6 +253,21 @@ function! Multiple_cursors_after()
     exe 'NeoCompleteUnlock'
   endif
 endfunction
+" }}}
+
+" Syntastic {{{
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['jshint']
+
+let g:syntastic_filetype_map = { 'html.handlebars': 'handlebars' }
 " }}}
 
 " Organization {{{
