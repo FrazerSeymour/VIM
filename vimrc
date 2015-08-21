@@ -68,6 +68,13 @@ inoremap jk <esc>
 
 " save session
 nnoremap <leader>s :mksession<CR>
+
+" easy NERDtree access
+nnoremap <leader>E :NERDTree<CR>
+
+" easy Unite bindings
+nnoremap <leader>/ :Unite grep<CR>
+nnoremap <leader>e :Unite file_rec/async<CR>
 " }}}
 
 " Spaces and Tabs {{{
