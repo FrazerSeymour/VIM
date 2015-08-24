@@ -97,6 +97,11 @@ set incsearch   " Show search matches as you type.
 
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
+
+" Use ag to search code and respect .gitignore.
+if executable("ag")
+    let g:unite_source_rec_async_command = ['ag', '--nocolor', '--nogroup', '-g', '']
+endif
 " }}}
 
 " Appearance {{{
