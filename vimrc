@@ -116,12 +116,12 @@ set guioptions-=r               " /
 
 " Switch syntax highlighting on, when the terminal has colours.
 if &t_Co > 2 || has("gui_running")
-   syntax on
+    syntax on
 endif
 
 " Set the 'Tomorrow-Night-Bright' colourscheme if available.
 if &t_Co >= 256 || has("gui_running")
-   colorscheme Tomorrow-Night-Bright
+    colorscheme Tomorrow-Night-Bright
 endif
 " }}}
 
@@ -217,7 +217,7 @@ inoremap <expr><C-l>     neocomplete#complete_common_string()
 " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
+   return neocomplete#close_popup() . "\<CR>"
 endfunction
 
 " <TAB>: completion.
@@ -251,23 +251,23 @@ let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
+    let g:neocomplete#sources#omni#input_patterns = {}
 endif
 let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
 let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 
 " Called once right before you start selecting multiple cursors
 function! Multiple_cursors_before()
-  if exists(':NeoCompleteLock')==2
-    exe 'NeoCompleteLock'
-  endif
+    if exists(':NeoCompleteLock')==2
+        exe 'NeoCompleteLock'
+    endif
 endfunction
 
 " Called once only when the multiple selection is canceled (default <Esc>)
 function! Multiple_cursors_after()
-  if exists(':NeoCompleteUnlock')==2
-    exe 'NeoCompleteUnlock'
-  endif
+    if exists(':NeoCompleteUnlock')==2
+        exe 'NeoCompleteUnlock'
+    endif
 endfunction
 " }}}
 
