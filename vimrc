@@ -73,7 +73,7 @@ nnoremap <leader>s :mksession<CR>
 nnoremap <leader>E :NERDTree<CR>
 
 " easy Unite bindings
-nnoremap <leader>/ :Unite grep<CR>
+nnoremap <leader>/ :Unite grep<CR><CR>
 nnoremap <leader>e :Unite file_rec/async<CR>
 " }}}
 
@@ -101,6 +101,8 @@ nnoremap <leader><space> :nohlsearch<CR>
 " Use ag to search code and respect .gitignore.
 if executable("ag")
     let g:unite_source_rec_async_command = ['ag', '--nocolor', '--nogroup', '-g', '']
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts = '--nocolor --nogroup'
 endif
 " }}}
 
