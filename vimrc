@@ -28,6 +28,7 @@ Plugin 'Shougo/unite.vim'
 " Python
 Plugin 'klen/python-mode'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'mindriot101/vim-yapf'
 
 " JavaScript
 Plugin 'jelera/vim-javascript-syntax'
@@ -177,6 +178,7 @@ augroup configgroup
     autocmd FileType python setlocal list
     autocmd FileType python setlocal listchars=tab:>.,trail:.,extends:#,nbsp:.
     autocmd FileType python :call Margin()
+    autocmd FileType python nnoremap <leader><tab> :call Yapf()<cr>
 
     autocmd BufEnter Makefile setlocal noexpandtab
 
