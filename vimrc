@@ -39,6 +39,7 @@ Plugin 'marijnh/tern_for_vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdtree'
+Plugin 'embear/vim-localvimrc'
 
 " Git
 Plugin 'tpope/vim-fugitive'
