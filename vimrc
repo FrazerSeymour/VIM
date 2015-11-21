@@ -171,10 +171,10 @@ augroup configgroup
     autocmd!
     autocmd VimEnter * highlight clear SignColumn
 
-    autocmd FileType html,javascript,html.handlebars setlocal tabstop=2
-    autocmd FileType html,javascript,html.handlebars setlocal shiftwidth=2
-    autocmd FileType html,javascript,html.handlebars setlocal softtabstop=2
-    autocmd FileType html,javascript,html.handlebars setlocal foldlevel=2
+    autocmd FileType html,javascript,html.handlebars,scss setlocal tabstop=2
+    autocmd FileType html,javascript,html.handlebars,scss setlocal shiftwidth=2
+    autocmd FileType html,javascript,html.handlebars,scss setlocal softtabstop=2
+    autocmd FileType html,javascript,html.handlebars,scss setlocal foldlevel=2
 
     autocmd FileType python setlocal list
     autocmd FileType python setlocal listchars=tab:>.,trail:.,extends:#,nbsp:.
