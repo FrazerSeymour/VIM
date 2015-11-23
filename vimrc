@@ -76,7 +76,7 @@ nnoremap <leader>E :NERDTree<CR>
 
 " easy Unite bindings
 nnoremap <leader>/ :Unite grep<CR><CR>
-nnoremap <leader>e :Unite file_rec/async<CR>
+nnoremap <leader>e :Unite file_rec/git<CR>
 " }}}
 
 " Spaces and Tabs {{{
@@ -106,6 +106,11 @@ if executable("ag")
     let g:unite_source_grep_command = 'ag'
     let g:unite_source_grep_default_opts = '-iS --nocolor --nogroup'
 endif
+
+" Don't limit number of files for Unite.
+let g:unite_source_file_rec_max_cache_files = 0
+call unite#custom#source('file_rec,file_rec/async,file_rec/git',
+            \ 'max_candidates', 0)
 " }}}
 
 " Appearance {{{
