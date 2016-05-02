@@ -3,8 +3,14 @@ set nocompatible
 filetype off
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+if has("win32") || has("win16")
+    let $MYVIMRC='$HOME/git-vim/vimrc'
+    set rtp+=$HOME/vimfiles/bundle/Vundle.vim
+    call vundle#begin('$USERPROFILE/vimfiles/bundle/')
+else
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+endif
 
 " Let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
