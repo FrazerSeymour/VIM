@@ -3,13 +3,13 @@ set nocompatible
 filetype off
 
 " set the runtime path to include Vundle and initialize
-if has("win32") || has("win16")
+if has("unix") && !has("win32unix")
+    set rtp+=~/.vim/bundle/Vundle.vim
+    call vundle#begin()
+elseif (has("win32") || has("win16")) || has("win32unix")
     let $MYVIMRC='$HOME/git-vim/vimrc'
     set rtp+=$HOME/vimfiles/bundle/Vundle.vim
     call vundle#begin('$USERPROFILE/vimfiles/bundle/')
-else
-    set rtp+=~/.vim/bundle/Vundle.vim
-    call vundle#begin()
 endif
 
 " Let Vundle manage Vundle
@@ -62,6 +62,12 @@ set visualbell              " Don't beep.
 set noerrorbells            " Don't beep.
 set nobackup                " No backup file.
 set noswapfile              " No backup file.
+" Change Font
+if (has("win32") || has("win16")) || has("win32unix")
+    set ff=dos
+else
+    set ff=unix
+endif
 " }}}
 
 " Shortcuts {{{
@@ -129,10 +135,15 @@ set wildmenu                    " Visual autocomplete for command menu.
 set lazyredraw                  " Redraw only when we need to.
 filetype plugin indent on       " Activate filetypes.
 set spell spelllang=en_gb       " Spellcheck.
-set guifont=SourceCodePro,mono " Change font.
 set guioptions-=m               " \
 set guioptions-=T               "  Hide GUI Widgets
 set guioptions-=r               " /
+" Change Font
+if (has("win32") || has("win16")) || has("win32unix")
+    set guifont=Source\ Code\ Pro:h14
+else
+    set guifont=SourceCodePro,mono " Change font.
+endif
 
 " Switch syntax highlighting on, when the terminal has colours.
 if &t_Co > 2 || has("gui_running")
