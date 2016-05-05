@@ -58,8 +58,9 @@ filetype plugin indent on
 " Basic Operation {{{
 set history=1000            " Remember more commands and search history.
 set undolevels=1000         " Use many mucho levels of undo.
-set visualbell              " Don't beep.
-set noerrorbells            " Don't beep.
+set visualbell              " \
+set t_vb=                   "  Don't beep.
+set noerrorbells            " /
 set nobackup                " No backup file.
 set noswapfile              " No backup file.
 " Change Font
