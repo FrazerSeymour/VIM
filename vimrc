@@ -11,8 +11,6 @@ Plugin 'gmarik/Vundle.vim'
 
 " Colour Schemes
 Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'chriskempson/base16-vim'
-Plugin 'altercation/vim-colors-solarized'
 
 " Syntax Highlighting
 Plugin 'vim-scripts/cSyntaxAfter'
