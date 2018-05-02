@@ -146,8 +146,8 @@ else
     set guifont=SourceCodePro,mono " Change font.
 endif
 
-" Switch syntax highlighting on, when the terminal has colours.
-if &t_Co > 2 || has("gui_running")
+" Switch syntax highlighting on when the terminal has colours.
+if &t_Co >= 256 || has("gui_running")
     syntax on
     colorscheme vimspectrgrey-light
     "colorscheme vimspectr210-dark
