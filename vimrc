@@ -18,6 +18,7 @@ Plugin 'gmarik/Vundle.vim'
 " Colour Schemes
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'baeuml/summerfruit256.vim'
+Plugin 'nightsense/vimspectr'
 
 " Syntax Highlighting
 Plugin 'vim-scripts/cSyntaxAfter'
@@ -148,12 +149,14 @@ endif
 " Switch syntax highlighting on, when the terminal has colours.
 if &t_Co > 2 || has("gui_running")
     syntax on
+    colorscheme vimspectrgrey-light
+    "colorscheme vimspectr210-dark
 endif
 
-" Set the 'Tomorrow-Night-Bright' colourscheme if available.
-if &t_Co >= 256 || has("gui_running")
-    colorscheme Tomorrow-Night-Bright
-endif
+" Vim Spectr settings.
+let g:vimspectrMuteLineNr = 'on'
+let g:vimspectrItalicComment = 'on'
+let g:vimspectrMuteStatusLine = 'on'
 " }}}
 
 " Folding {{{
