@@ -24,6 +24,7 @@ Plugin 'nightsense/vimspectr'
 Plugin 'vim-scripts/cSyntaxAfter'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'scrooloose/syntastic'
+Plugin 'gabrielelana/vim-markdown'
 
 " Shougo stuff
 Plugin 'Shougo/neocomplete.vim'
