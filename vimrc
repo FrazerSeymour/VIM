@@ -151,8 +151,8 @@ endif
 " Switch syntax highlighting on when the terminal has colours.
 if &t_Co >= 256 || has("gui_running")
     syntax on
-    colorscheme vimspectrgrey-light
-    "colorscheme vimspectr210-dark
+    "colorscheme vimspectrgrey-light
+    colorscheme vimspectr210-dark
 endif
 
 " Vim Spectr settings.
