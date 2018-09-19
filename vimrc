@@ -25,6 +25,7 @@ Plugin 'vim-scripts/cSyntaxAfter'
 Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'scrooloose/syntastic'
 Plugin 'gabrielelana/vim-markdown'
+Plugin 'ekalinin/Dockerfile.vim'
 
 " Shougo stuff
 Plugin 'Shougo/neocomplete.vim'
