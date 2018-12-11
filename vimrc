@@ -91,7 +91,7 @@ nnoremap <leader>E :NERDTree<CR>
 
 " easy Unite bindings
 nnoremap <leader>/ :Unite grep<CR><CR>
-nnoremap <leader>e :Unite file_rec/git<CR>
+nnoremap <expr> <leader>e filereadable(".git") ? ":Unite file_rec/git<CR>" : ":Unite file_rec/async<CR>"
 " }}}
 
 " Spaces and Tabs {{{
