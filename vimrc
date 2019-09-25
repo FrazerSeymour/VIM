@@ -39,6 +39,9 @@ Plugin 'klen/python-mode'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'mindriot101/vim-yapf'
 
+" Go
+Plugin 'fatih/vim-go'
+
 " JavaScript
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'othree/javascript-libraries-syntax.vim'
