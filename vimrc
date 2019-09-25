@@ -19,6 +19,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'baeuml/summerfruit256.vim'
 Plugin 'nightsense/vimspectr'
+Plugin 'nightsense/night-and-day'
 
 " Syntax Highlighting
 Plugin 'vim-scripts/cSyntaxAfter'
@@ -141,6 +142,7 @@ set spell spelllang=en_gb       " Spellcheck.
 set guioptions-=m               " \
 set guioptions-=T               "  Hide GUI Widgets
 set guioptions-=r               " /
+
 " Change Font
 if (has("win32") || has("win16")) || has("win32unix")
     set guifont=Source\ Code\ Pro:h14
@@ -149,10 +151,18 @@ else
 endif
 
 " Switch syntax highlighting on when the terminal has colours.
-if &t_Co >= 256 || has("gui_running")
+if &t_Co > 2 || has("gui_running")
     syntax on
-    "colorscheme vimspectrgrey-light
-    colorscheme vimspectr210-dark
+    let g:nd_themes = [
+    \ ['sunrise+0', 'vimspectrgrey-light',  'light' ],
+    \ ['sunset+0',  'vimspectr210-dark',    'dark'  ],
+    \ ]
+    let g:nd_latitude = '45'
+    if strftime("%m") > 3 && strftime("%m") < 11
+        let g:nd_timeshift = '63'
+    else
+        let g:nd_timeshift = '123'
+    endif
 endif
 
 " Vim Spectr settings.
