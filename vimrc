@@ -58,7 +58,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 call vundle#end()
-filetype plugin indent on
 " }}}
 
 " Basic Operation {{{
@@ -69,18 +68,9 @@ set t_vb=                   "  Don't beep.
 set noerrorbells            " /
 set nobackup                " No backup file.
 set noswapfile              " No backup file.
-" Change Font
-if (has("win32") || has("win16")) || has("win32unix")
-    set ff=dos
-else
-    set ff=unix
-endif
 " }}}
 
 " Shortcuts {{{
-" Command is now ';'.
-nnoremap ; :
-
 " Leader is now ','.
 let mapleader=","
 
@@ -167,11 +157,6 @@ if &t_Co > 2 || has("gui_running")
         let g:nd_timeshift = 123
     endif
 endif
-
-" Vim Spectr settings.
-let g:vimspectrMuteLineNr = 'on'
-let g:vimspectrItalicComment = 'on'
-let g:vimspectrMuteStatusLine = 'on'
 " }}}
 
 " Folding {{{
@@ -190,23 +175,11 @@ nnoremap <space> za
 nnoremap j gj
 nnoremap k gk
 
-" Easy window navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
 " Easy tab navigation
 nnoremap <C-S-tab> :tabprevious<CR>
 nnoremap <C-tab>   :tabnext<CR>
 inoremap <C-S-tab> <Esc>:tabprevious<CR>i
 inoremap <C-tab>   <Esc>:tabnext<CR>i
-
-" Disables arrow keys.
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
 
 " Highlight last inserted text
 nnoremap gV `[v`]
