@@ -160,11 +160,11 @@ if &t_Co > 2 || has("gui_running")
     \ ['sunrise+0', 'vimspectrgrey-light',  'light' ],
     \ ['sunset+0',  'vimspectr210-dark',    'dark'  ],
     \ ]
-    let g:nd_latitude = '45'
+    let g:nd_latitude = 45
     if strftime("%m") > 3 && strftime("%m") < 11
-        let g:nd_timeshift = '63'
+        let g:nd_timeshift = 63
     else
-        let g:nd_timeshift = '123'
+        let g:nd_timeshift = 123
     endif
 endif
 
