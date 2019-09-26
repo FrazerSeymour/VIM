@@ -227,6 +227,8 @@ augroup configgroup
     autocmd FileType python :call Margin()
     autocmd FileType python nnoremap <leader><tab> :call Yapf()<cr>
 
+    autocmd FileType go nnoremap <leader><tab> :GoFmt<cr>
+
     autocmd BufEnter Makefile setlocal noexpandtab
 
     autocmd FileType cobol setlocal nospell
