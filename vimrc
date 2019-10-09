@@ -44,11 +44,7 @@ set guioptions-=T               "  Hide GUI Widgets
 set guioptions-=r               " /
 
 " Change Font
-if (has("win32") || has("win16")) || has("win32unix")
-    set guifont=Source\ Code\ Pro:h14
-else
-    set guifont=SourceCodePro,mono " Change font.
-endif
+set guifont=SourceCodePro,mono
 
 
 " Folding
