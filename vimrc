@@ -2,7 +2,8 @@
 source ~/.vim/vundle.vimrc
 " }}}
 
-" Basic Operation {{{
+" Settings {{{
+" Basic Operation
 set history=1000            " Remember more commands and search history.
 set undolevels=1000         " Use many mucho levels of undo.
 set visualbell              " \
@@ -10,27 +11,8 @@ set t_vb=                   "  Don't beep.
 set noerrorbells            " /
 set nobackup                " No backup file.
 set noswapfile              " No backup file.
-" }}}
 
-" Shortcuts {{{
-" Leader is now ','.
-let mapleader=","
-
-" jk is escape
-inoremap jk <esc>
-
-" save session
-nnoremap <leader>s :mksession<CR>
-
-" easy NERDtree access
-nnoremap <leader>E :NERDTree<CR>
-
-" easy Unite bindings
-nnoremap <leader>/ :Unite grep<CR><CR>
-nnoremap <expr> <leader>e filereadable(".git") ? ":Unite file_rec/git<CR>" : ":Unite file_rec/async<CR>"
-" }}}
-
-" Spaces and Tabs {{{
+" Spaces and Tabs
 set tabstop=4       " Tab width is four.
 set softtabstop=4   " Tab width is four.
 set expandtab       " Tabs are spaces.
@@ -40,31 +22,14 @@ set shiftwidth=4    " Number of spaces to use for autoindenting.
 set shiftround      " Use multiple of shiftwidth when indenting with '<' and '>'.
 set smarttab        " Insert tabs on the start of a line according to shiftwidth, not tabstop
 set backspace=indent,eol,start  " Allow backspacing over everything in insert mode.
-" }}}
 
-" Searching {{{
+" Searching
 set ignorecase  " Ignore case when searching.
 set smartcase   " Ignore case if search pattern is all lowercase, case-sensitive otherwise.
 set hlsearch    " Highlight search terms.
 set incsearch   " Show search matches as you type.
 
-" turn off search highlight
-nnoremap <leader><space> :nohlsearch<CR>
-
-" Use ag to search code and respect .gitignore.
-if executable("ag")
-    let g:unite_source_rec_async_command = ['ag', '-iS', '--nocolor', '--nogroup', '-g', '']
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts = '-iS --nocolor --nogroup'
-endif
-
-" Don't limit number of files for Unite.
-let g:unite_source_file_rec_max_cache_files = 0
-call unite#custom#source('file_rec,file_rec/async,file_rec/git',
-            \ 'max_candidates', 0)
-" }}}
-
-" Appearance {{{
+" Appearance
 set title                       " Change the terminal's title.
 set number                      " Show line numbers.
 set nowrap                      " Don't wrap lines.
@@ -85,6 +50,70 @@ else
     set guifont=SourceCodePro,mono " Change font.
 endif
 
+
+" Folding
+set foldenable          " Enable folding.
+set foldlevel=1         " One space counts as an indent.
+set foldlevelstart=10   " Open most folds by default.
+set foldnestmax=10      " 10 nested fold max.
+set foldmethod=indent   " fold based on indent level
+" }}}
+
+" Remaps {{{
+" Leader is now ','.
+let mapleader=","
+
+" jk is escape
+inoremap jk <esc>
+
+" save session
+nnoremap <leader>s :mksession<CR>
+
+" easy NERDtree access
+nnoremap <leader>E :NERDTree<CR>
+
+" easy Unite bindings
+nnoremap <leader>/ :Unite grep<CR><CR>
+nnoremap <expr> <leader>e filereadable(".git") ? ":Unite file_rec/git<CR>" : ":Unite file_rec/async<CR>"
+
+" Searching
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Folding
+" space open/closes folds
+nnoremap <space> za
+
+" Movement
+" Move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+" Easy tab navigation
+nnoremap <C-S-tab> :tabprevious<CR>
+nnoremap <C-tab>   :tabnext<CR>
+inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+inoremap <C-tab>   <Esc>:tabnext<CR>i
+
+" Highlight last inserted text
+nnoremap gV `[v`]
+" }}}
+
+" Searching {{{
+" Use ag to search code and respect .gitignore.
+if executable("ag")
+    let g:unite_source_rec_async_command = ['ag', '-iS', '--nocolor', '--nogroup', '-g', '']
+    let g:unite_source_grep_command = 'ag'
+    let g:unite_source_grep_default_opts = '-iS --nocolor --nogroup'
+endif
+
+" Don't limit number of files for Unite.
+let g:unite_source_file_rec_max_cache_files = 0
+call unite#custom#source('file_rec,file_rec/async,file_rec/git',
+            \ 'max_candidates', 0)
+" }}}
+
+" Appearance {{{
 " Switch syntax highlighting on when the terminal has colours.
 if &t_Co > 2 || has("gui_running")
     syntax on
@@ -101,31 +130,6 @@ if &t_Co > 2 || has("gui_running")
 endif
 " }}}
 
-" Folding {{{
-set foldenable          " Enable folding.
-set foldlevel=1         " One space counts as an indent.
-set foldlevelstart=10   " Open most folds by default.
-set foldnestmax=10      " 10 nested fold max.
-set foldmethod=indent   " fold based on indent level
-
-" space open/closes folds
-nnoremap <space> za
-" }}}
-
-" Movement {{{
-" Move vertically by visual line
-nnoremap j gj
-nnoremap k gk
-
-" Easy tab navigation
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
-inoremap <C-S-tab> <Esc>:tabprevious<CR>i
-inoremap <C-tab>   <Esc>:tabnext<CR>i
-
-" Highlight last inserted text
-nnoremap gV `[v`]
-" }}}
 
 " Autogroups {{{
 augroup configgroup
