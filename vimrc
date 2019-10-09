@@ -1,5 +1,5 @@
-" Vundle {{{
-source ~/.vim/vundle.vimrc
+" Plugins {{{
+source ~/.vim/plugins.vimrc
 " }}}
 
 " Settings {{{

@@ -29,4 +29,4 @@
             - Vundle Installed
   handlers:
       - name: Vundle Installed
-        shell: vim -E -u {{ vim_dir }}/vundle.vimrc +PluginInstall +qall > /dev/null
+        shell: vim -E -u {{ vim_dir }}/plugins.vimrc +PluginInstall +qall > /dev/null
