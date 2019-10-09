@@ -1,6 +1,6 @@
 #!/bin/bash
-mkdir ./vim
-ln -s ./vimrc ~/.vimrc
-ln -s ./vim ~/.vim
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-vim -c ":PluginInstall"
+if ! ansible-playbook --version >/dev/null 2>&1; then
+    echo "Ansible is required to use this installation script!"
+else
+    ansible-playbook --connection=local --inventory 127.0.0.1, playbook.yml
+fi
