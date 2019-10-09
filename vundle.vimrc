@@ -15,6 +15,9 @@ endif
 " Let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
 
+" Language Agnostic Syntax Support
+Plugin 'sheerun/vim-polyglot'
+
 " Colour Schemes
 Plugin 'nightsense/vimspectr'
 
