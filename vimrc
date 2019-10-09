@@ -1,7 +1,3 @@
-" Plugins {{{
-source ~/.vim/plugins.vimrc
-" }}}
-
 " Settings {{{
 " Basic Operation
 set history=1000            " Remember more commands and search history.
@@ -89,14 +85,22 @@ inoremap <C-tab>   <Esc>:tabnext<CR>i
 nnoremap gV `[v`]
 " }}}
 
-" Appearance {{{
-" Switch syntax highlighting on when the terminal has colours.
+" Plugins {{{
+
+" Vim-Plug: Plugin installation and management.
+source ~/.vim/plugins.vimrc
+
+" night-and-day: Set colourschemes by time of day.
 if &t_Co > 2 || has("gui_running")
     syntax on
+
+    " Set themes for day and night.
     let g:nd_themes = [
     \ ['sunrise+0', 'vimspectrgrey-light',  'light' ],
     \ ['sunset+0',  'vimspectr210-dark',    'dark'  ],
     \ ]
+
+    " Correct global position for sunrise/sunset times.
     let g:nd_latitude = 45
     if strftime("%m") > 3 && strftime("%m") < 11
         let g:nd_timeshift = 63
