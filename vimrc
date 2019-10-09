@@ -110,24 +110,6 @@ if &t_Co > 2 || has("gui_running")
 endif
 " }}}
 
-" Autogroups {{{
-augroup configgroup
-    autocmd!
-    autocmd VimEnter * highlight clear SignColumn
-
-    autocmd FileType html,javascript,html.handlebars,scss,svg setlocal tabstop=2
-    autocmd FileType html,javascript,html.handlebars,scss,svg setlocal shiftwidth=2
-    autocmd FileType html,javascript,html.handlebars,scss,svg setlocal softtabstop=2
-    autocmd FileType html,javascript,html.handlebars,scss,svg setlocal foldlevel=2
-
-    autocmd FileType go nnoremap <leader><tab> :GoFmt<cr>
-
-    autocmd BufEnter Makefile setlocal noexpandtab
-
-    autocmd FileType cobol setlocal nospell
-augroup END
-" }}}
-
 " Organization {{{
 set modelines=1
 " }}}
