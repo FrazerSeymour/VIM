@@ -120,25 +120,12 @@ augroup configgroup
     autocmd FileType html,javascript,html.handlebars,scss,svg setlocal softtabstop=2
     autocmd FileType html,javascript,html.handlebars,scss,svg setlocal foldlevel=2
 
-    autocmd FileType python setlocal list
-    autocmd FileType python setlocal listchars=tab:>.,trail:.,extends:#,nbsp:.
-    autocmd FileType python :call Margin()
-    autocmd FileType python nnoremap <leader><tab> :call Yapf()<cr>
-
     autocmd FileType go nnoremap <leader><tab> :GoFmt<cr>
 
     autocmd BufEnter Makefile setlocal noexpandtab
 
     autocmd FileType cobol setlocal nospell
 augroup END
-
-function! Margin() 
-    if exists('+colorcolumn')
-        setlocal colorcolumn=80
-    else
-        au BufWinEnter *.py let w:m2=matchadd('ErrorMsg', '\%.80v.\+', -1)
-    endif
-endfunc
 " }}}
 
 " Organization {{{
