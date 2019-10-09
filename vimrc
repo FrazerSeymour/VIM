@@ -60,21 +60,15 @@ set foldmethod=indent   " fold based on indent level
 " }}}
 
 " Remaps {{{
-" Leader is now ','.
-let mapleader=","
-
 " jk is escape
 inoremap jk <esc>
-
-" save session
-nnoremap <leader>s :mksession<CR>
 
 " easy NERDtree access
 nnoremap <leader>E :NERDTree<CR>
 
 " easy Unite bindings
-nnoremap <leader>/ :Unite grep<CR><CR>
-nnoremap <expr> <leader>e filereadable(".git") ? ":Unite file_rec/git<CR>" : ":Unite file_rec/async<CR>"
+"nnoremap <leader>/ :Unite grep<CR><CR>
+"nnoremap <expr> <leader>e filereadable(".git") ? ":Unite file_rec/git<CR>" : ":Unite file_rec/async<CR>"
 
 " Searching
 " turn off search highlight
