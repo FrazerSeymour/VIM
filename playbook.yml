@@ -1,30 +1,32 @@
 - name: Configure Vim
   hosts: all
+  vars:
+      vim_dir: "{{ ansible_env.HOME }}/.vim"
   tasks:
-    - name: Vim configuration files are present.
-      file:
-          src: "{{ item.src }}"
-          dest: "{{ item.dest }}"
-          state: link
-      with_items:
-          - src: "{{ playbook_dir }}"
-            dest: "{{ ansible_env.HOME }}/.vim"
-          - src: "{{ playbook_dir }}/vimrc"
-            dest: "{{ ansible_env.HOME }}/.vimrc"
+      - name: Vim configuration files are present.
+        file:
+            src: "{{ item.src }}"
+            dest: "{{ item.dest }}"
+            state: link
+        with_items:
+            - src: "{{ playbook_dir }}"
+              dest: "{{ vim_dir }}"
+            - src: "{{ playbook_dir }}/vimrc"
+              dest: "{{ ansible_env.HOME }}/.vimrc"
 
-    - name: Package dependencies are installed.
-      package:
-          name: git
-          state: present
+      - name: Package dependencies are installed.
+        package:
+            name: git
+            state: present
 
-    - name: Vundle is installed.
-      git:
-          repo: https://github.com/gmarik/Vundle.vim.git
-          dest: "{{ playbook_dir }}/bundle/Vundle.vim"
-          update: no
-          version: master
-      notify:
-          - Vundle Installed
+      - name: Vundle is installed.
+        git:
+            repo: https://github.com/gmarik/Vundle.vim.git
+            dest: "{{ vim_dir }}/bundle/Vundle.vim"
+            update: no
+            version: master
+        notify:
+            - Vundle Installed
   handlers:
-    - name: Vundle Installed
-      shell: vim -E -u {{ playbook_dir }}/vundle.vimrc +PluginInstall +qall > /dev/null
+      - name: Vundle Installed
+        shell: vim -E -u {{ vim_dir }}/vundle.vimrc +PluginInstall +qall > /dev/null
