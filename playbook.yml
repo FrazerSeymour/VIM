@@ -18,15 +18,3 @@
         package:
             name: git
             state: present
-
-      - name: Vundle is installed.
-        git:
-            repo: https://github.com/gmarik/Vundle.vim.git
-            dest: "{{ vim_dir }}/bundle/Vundle.vim"
-            update: no
-            version: master
-        notify:
-            - Vundle Installed
-  handlers:
-      - name: Vundle Installed
-        shell: vim -E -u {{ vim_dir }}/plugins.vimrc +PluginInstall +qall > /dev/null
