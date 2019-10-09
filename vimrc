@@ -99,20 +99,6 @@ inoremap <C-tab>   <Esc>:tabnext<CR>i
 nnoremap gV `[v`]
 " }}}
 
-" Searching {{{
-" Use ag to search code and respect .gitignore.
-if executable("ag")
-    let g:unite_source_rec_async_command = ['ag', '-iS', '--nocolor', '--nogroup', '-g', '']
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts = '-iS --nocolor --nogroup'
-endif
-
-" Don't limit number of files for Unite.
-let g:unite_source_file_rec_max_cache_files = 0
-call unite#custom#source('file_rec,file_rec/async,file_rec/git',
-            \ 'max_candidates', 0)
-" }}}
-
 " Appearance {{{
 " Switch syntax highlighting on when the terminal has colours.
 if &t_Co > 2 || has("gui_running")
@@ -129,7 +115,6 @@ if &t_Co > 2 || has("gui_running")
     endif
 endif
 " }}}
-
 
 " Autogroups {{{
 augroup configgroup
@@ -160,107 +145,6 @@ function! Margin()
         au BufWinEnter *.py let w:m2=matchadd('ErrorMsg', '\%.80v.\+', -1)
     endif
 endfunc
-" }}}
-
-" neocomplete {{{
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-   return neocomplete#close_popup() . "\<CR>"
-endfunction
-
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-
-" Enable omni completion.
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-
-" Python omni completion
-autocmd FileType python setlocal omnifunc=jedi#completions
-let g:pymode_rope=0
-let g:pymode_lint=0
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 0
-let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
-
-
-" JavaScript omni completion
-let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
-
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-
-" Called once right before you start selecting multiple cursors
-function! Multiple_cursors_before()
-    if exists(':NeoCompleteLock')==2
-        exe 'NeoCompleteLock'
-    endif
-endfunction
-
-" Called once only when the multiple selection is canceled (default <Esc>)
-function! Multiple_cursors_after()
-    if exists(':NeoCompleteUnlock')==2
-        exe 'NeoCompleteUnlock'
-    endif
-endfunction
-" }}}
-
-" Syntastic {{{
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_javascript_checkers = ['jshint']
-
-let g:syntastic_filetype_map = { 'html.handlebars': 'handlebars' }
 " }}}
 
 " Organization {{{
