@@ -17,16 +17,19 @@ Plugin 'gmarik/Vundle.vim'
 
 " Colour Schemes
 Plugin 'nightsense/vimspectr'
+
+" Change Colour Schemes by time-of-day.
 Plugin 'nightsense/night-and-day'
 
-" Clever Stuff
+" Multiple cursors.
 Plugin 'terryma/vim-multiple-cursors'
-Plugin 'scrooloose/nerdtree'
-Plugin 'embear/vim-localvimrc'
 
-" Git
-Plugin 'tpope/vim-fugitive'
+" File browser with git annotation.
+Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+
+" Project-based editor configuration.
+Plugin 'embear/vim-localvimrc'
 
 call vundle#end()
 " }}}
