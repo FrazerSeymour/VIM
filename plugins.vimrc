@@ -1,32 +1,31 @@
-" Vundle {{{
-set nocompatible
-filetype off
+" Plugins {{{
+" Install Vim-Plug and plugins if absent.
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" Let Vundle manage Vundle
-Plugin 'gmarik/Vundle.vim'
+call plug#begin()
 
 " Language Agnostic Syntax Support
-Plugin 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 
 " Colour Schemes
-Plugin 'nightsense/vimspectr'
+Plug 'nightsense/vimspectr'
 
 " Change Colour Schemes by time-of-day.
-Plugin 'nightsense/night-and-day'
+Plug 'nightsense/night-and-day'
 
 " Multiple cursors.
-Plugin 'terryma/vim-multiple-cursors'
+Plug 'terryma/vim-multiple-cursors'
 
 " File browser with git annotation.
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Project-based editor configuration.
-Plugin 'embear/vim-localvimrc'
+Plug 'embear/vim-localvimrc'
 
-call vundle#end()
+call plug#end()
 " }}}
