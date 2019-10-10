@@ -16,5 +16,9 @@
 
       - name: Package dependencies are installed.
         package:
-            name: git
+            name:
+              - git
+              - python-pip
+              - python-pynvim
             state: present
+        become: true

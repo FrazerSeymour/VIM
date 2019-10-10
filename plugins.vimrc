@@ -11,6 +11,9 @@ call plug#begin()
 " Language Agnostic Syntax Support
 Plug 'sheerun/vim-polyglot'
 
+" Autocomplete engine. (And requirements.)
+Plug 'Shougo/deoplete.nvim'  | Plug 'roxma/nvim-yarp' | Plug 'roxma/vim-hug-neovim-rpc'
+
 " Colour Schemes
 Plug 'nightsense/vimspectr'
 

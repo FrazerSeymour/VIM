@@ -86,9 +86,11 @@ nnoremap gV `[v`]
 " }}}
 
 " Plugins {{{
-
 " Vim-Plug: Plugin installation and management.
 source ~/.vim/plugins.vimrc
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
 
 " night-and-day: Set colourschemes by time of day.
 if &t_Co > 2 || has("gui_running")
