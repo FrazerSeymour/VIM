@@ -55,13 +55,6 @@ set foldmethod=indent   " fold based on indent level
 " jk is escape
 inoremap jk <esc>
 
-" easy NERDtree access
-nnoremap <leader>E :NERDTree<CR>
-
-" easy Unite bindings
-"nnoremap <leader>/ :Unite grep<CR><CR>
-"nnoremap <expr> <leader>e filereadable(".git") ? ":Unite file_rec/git<CR>" : ":Unite file_rec/async<CR>"
-
 " Searching
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
@@ -85,19 +78,29 @@ inoremap <C-tab>   <Esc>:tabnext<CR>i
 nnoremap gV `[v`]
 " }}}
 
-" Plugins {{{
-" Vim-Plug: Plugin installation and management.
-source ~/.vim/plugins.vimrc
-
-" Deoplete: Enable on startup.
-let g:deoplete#enable_at_startup = 1
-
+" Plugin Remaps {{{
 " Deoplete: Go forward through candidates with tab.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Deoplete: Go backwards through candidates with shift+tab.
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
+" NERDtree: Super-powered 'edit file' alternate.
+nnoremap <leader>E :NERDTree<CR>
+
+" Unite: Super-powered content search.
+"nnoremap <leader>/ :Unite grep<CR><CR>
+
+" Unite: Super-powered 'edit file'.
+"nnoremap <expr> <leader>e filereadable(".git") ? ":Unite file_rec/git<CR>" : ":Unite file_rec/async<CR>"
+" }}}
+
+" Plugin Configuration {{{
+" Vim-Plug: Plugin installation and management.
+source ~/.vim/plugins.vimrc
+
+" Deoplete: Enable on startup.
+let g:deoplete#enable_at_startup = 1
 
 " Vim-Multiple-Cursors: Play nice with deoplete.
 func! Multiple_cursors_before()
