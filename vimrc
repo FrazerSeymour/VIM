@@ -89,8 +89,31 @@ nnoremap gV `[v`]
 " Vim-Plug: Plugin installation and management.
 source ~/.vim/plugins.vimrc
 
-" Deoplete
+" Deoplete: Enable on startup.
 let g:deoplete#enable_at_startup = 1
+
+" Deoplete: Go forward through candidates with tab.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" Deoplete: Go backwards through candidates with shift+tab.
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+
+
+" Vim-Multiple-Cursors: Play nice with deoplete.
+func! Multiple_cursors_before()
+  if deoplete#is_enabled()
+    call deoplete#disable()
+    let g:deoplete_is_enable_before_multi_cursors = 1
+  else
+    let g:deoplete_is_enable_before_multi_cursors = 0
+  endif
+endfunc
+func! Multiple_cursors_after()
+  if g:deoplete_is_enable_before_multi_cursors
+    call deoplete#enable()
+  endif
+endfunc
+
 
 " night-and-day: Set colourschemes by time of day.
 if &t_Co > 2 || has("gui_running")
