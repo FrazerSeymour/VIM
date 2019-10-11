@@ -17,6 +17,9 @@ Plug 'dense-analysis/ale'
 " Autocomplete engine. (And requirements.)
 Plug 'Shougo/deoplete.nvim'  | Plug 'roxma/nvim-yarp' | Plug 'roxma/vim-hug-neovim-rpc'
 
+" Fuzzy-finding.
+Plug 'junegunn/fzf.vim'
+
 " Colour Schemes
 Plug 'nightsense/vimspectr'
 

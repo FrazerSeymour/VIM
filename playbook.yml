@@ -18,11 +18,13 @@
         package:
             name:
               - eslint
+              - fzf
               - git
               - prettier
               - python-pip
               - python-pynvim
               - python-black
+              - the_silver_searcher
               - typescript
             state: present
         become: true

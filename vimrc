@@ -100,11 +100,17 @@ nnoremap <leader>n :ALEFindReferences<CR>
 " NERDtree: Super-powered 'edit file' alternate.
 nnoremap <leader>E :NERDTree<CR>
 
-" Unite: Super-powered content search.
-"nnoremap <leader>/ :Unite grep<CR><CR>
+" FZF: Super-powered content search.
+nnoremap <leader>/  :Ag<space>
 
-" Unite: Super-powered 'edit file'.
-"nnoremap <expr> <leader>e filereadable(".git") ? ":Unite file_rec/git<CR>" : ":Unite file_rec/async<CR>"
+" FZF: Super-powered cursor search.
+nnoremap <leader>#  :Ag <C-R><C-W><CR>
+
+" FZF: Super-powered selection search
+xnoremap <Leader>#  y:Ag <C-R>"<CR>
+
+" FZF: Super-powered 'edit file'.
+nnoremap <leader>e  :FZF<CR><CR>
 " }}}
 
 " Plugin Configuration {{{
