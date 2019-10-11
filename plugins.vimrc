@@ -11,6 +11,9 @@ call plug#begin()
 " Language Agnostic Syntax Support
 Plug 'sheerun/vim-polyglot'
 
+" Code linting, formatting, and navigation.
+Plug 'dense-analysis/ale'
+
 " Autocomplete engine. (And requirements.)
 Plug 'Shougo/deoplete.nvim'  | Plug 'roxma/nvim-yarp' | Plug 'roxma/vim-hug-neovim-rpc'
 

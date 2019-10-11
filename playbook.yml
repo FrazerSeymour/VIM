@@ -17,8 +17,12 @@
       - name: Package dependencies are installed.
         package:
             name:
+              - eslint
               - git
+              - prettier
               - python-pip
               - python-pynvim
+              - python-black
+              - typescript
             state: present
         become: true

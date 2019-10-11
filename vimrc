@@ -85,6 +85,18 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " Deoplete: Go backwards through candidates with shift+tab.
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
+" ALE: Super-powered indent.
+nnoremap <leader><TAB> :ALEFix<CR>
+
+" ALE: Super-powered indentation suggestions.
+nnoremap <leader><S-TAB> :ALEFixSuggest<CR>
+
+" ALE: Super-powered go-to-definition.
+nnoremap <leader>gd :ALEGoToTypeDefinitionInVSplit<CR>
+
+" ALE: Super-powered go-to-next.
+nnoremap <leader>n :ALEFindReferences<CR>
+
 " NERDtree: Super-powered 'edit file' alternate.
 nnoremap <leader>E :NERDTree<CR>
 
@@ -101,6 +113,24 @@ source ~/.vim/plugins.vimrc
 
 " Deoplete: Enable on startup.
 let g:deoplete#enable_at_startup = 1
+
+" Deoplete: Use ALE as a source.
+call deoplete#custom#option('sources', {
+\ '_': ['ale'],
+\})
+
+
+" ALE: Use global tsserver installation
+let g:ale_typescript_tsserver_use_global = 1
+
+" ALE: Enable balloon hovering in GVim.
+if has("gui_running")
+    let g:ale_set_balloons = 1
+endif
+
+" ALE: Generic fixers.
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'],}
+
 
 " Vim-Multiple-Cursors: Play nice with deoplete.
 func! Multiple_cursors_before()
