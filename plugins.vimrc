@@ -43,5 +43,9 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'embear/vim-localvimrc'
 Plug 'editorconfig/editorconfig-vim'
 
+" Git integrations.
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
 call plug#end()
 " }}}
