@@ -41,6 +41,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Project-based editor configuration.
 Plug 'embear/vim-localvimrc'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 " }}}
