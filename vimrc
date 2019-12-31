@@ -173,6 +173,8 @@ if &t_Co > 2 || has("gui_running")
         let g:nd_timeshift = 123
     endif
 endif
+
+set rtp+=~/.fzf
 " }}}
 
 " Organization {{{
