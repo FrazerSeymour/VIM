@@ -14,8 +14,14 @@ Plug 'sheerun/vim-polyglot'
 " Code linting, formatting, and navigation.
 Plug 'dense-analysis/ale'
 
-" Autocomplete engine. (And requirements.)
+" Language Server Protocol interface. (And requirements.)
+Plug 'prabirshrestha/vim-lsp' | Plug 'prabirshrestha/async.vim'
+
+" Autocomplete UI. (And requirements.)
 Plug 'Shougo/deoplete.nvim'  | Plug 'roxma/nvim-yarp' | Plug 'roxma/vim-hug-neovim-rpc'
+
+" Link LSP and Deoplete.
+Plug 'lighttiger2505/deoplete-vim-lsp'
 
 " Fuzzy-finding.
 Plug 'junegunn/fzf.vim'

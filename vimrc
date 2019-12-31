@@ -120,11 +120,12 @@ source ~/.vim/plugins.vimrc
 " Deoplete: Enable on startup.
 let g:deoplete#enable_at_startup = 1
 
-" Deoplete: Use ALE as a source.
-call deoplete#custom#option('sources', {
-\ '_': ['ale'],
-\})
+" Deoplete: Use LSP as a source.
+"call deoplete#custom#option('sources', { '_': ['vim_lsp'], })
 
+
+" ALE: Disable auto-complete in favour of Deoplete.
+let g:ale_completion_enabled = 0
 
 " ALE: Use global tsserver installation
 let g:ale_typescript_tsserver_use_global = 1
