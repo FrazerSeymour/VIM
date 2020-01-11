@@ -1,8 +1,5 @@
-" Vundle {{{
-source ~/.vim/vundle.vimrc
-" }}}
-
-" Basic Operation {{{
+" Settings {{{
+" Basic Operation
 set history=1000            " Remember more commands and search history.
 set undolevels=1000         " Use many mucho levels of undo.
 set visualbell              " \
@@ -10,27 +7,8 @@ set t_vb=                   "  Don't beep.
 set noerrorbells            " /
 set nobackup                " No backup file.
 set noswapfile              " No backup file.
-" }}}
 
-" Shortcuts {{{
-" Leader is now ','.
-let mapleader=","
-
-" jk is escape
-inoremap jk <esc>
-
-" save session
-nnoremap <leader>s :mksession<CR>
-
-" easy NERDtree access
-nnoremap <leader>E :NERDTree<CR>
-
-" easy Unite bindings
-nnoremap <leader>/ :Unite grep<CR><CR>
-nnoremap <expr> <leader>e filereadable(".git") ? ":Unite file_rec/git<CR>" : ":Unite file_rec/async<CR>"
-" }}}
-
-" Spaces and Tabs {{{
+" Spaces and Tabs
 set tabstop=4       " Tab width is four.
 set softtabstop=4   " Tab width is four.
 set expandtab       " Tabs are spaces.
@@ -40,31 +18,14 @@ set shiftwidth=4    " Number of spaces to use for autoindenting.
 set shiftround      " Use multiple of shiftwidth when indenting with '<' and '>'.
 set smarttab        " Insert tabs on the start of a line according to shiftwidth, not tabstop
 set backspace=indent,eol,start  " Allow backspacing over everything in insert mode.
-" }}}
 
-" Searching {{{
+" Searching
 set ignorecase  " Ignore case when searching.
 set smartcase   " Ignore case if search pattern is all lowercase, case-sensitive otherwise.
 set hlsearch    " Highlight search terms.
 set incsearch   " Show search matches as you type.
 
-" turn off search highlight
-nnoremap <leader><space> :nohlsearch<CR>
-
-" Use ag to search code and respect .gitignore.
-if executable("ag")
-    let g:unite_source_rec_async_command = ['ag', '-iS', '--nocolor', '--nogroup', '-g', '']
-    let g:unite_source_grep_command = 'ag'
-    let g:unite_source_grep_default_opts = '-iS --nocolor --nogroup'
-endif
-
-" Don't limit number of files for Unite.
-let g:unite_source_file_rec_max_cache_files = 0
-call unite#custom#source('file_rec,file_rec/async,file_rec/git',
-            \ 'max_candidates', 0)
-" }}}
-
-" Appearance {{{
+" Appearance
 set title                       " Change the terminal's title.
 set number                      " Show line numbers.
 set nowrap                      " Don't wrap lines.
@@ -79,40 +40,30 @@ set guioptions-=T               "  Hide GUI Widgets
 set guioptions-=r               " /
 
 " Change Font
-if (has("win32") || has("win16")) || has("win32unix")
-    set guifont=Source\ Code\ Pro:h14
-else
-    set guifont=SourceCodePro,mono " Change font.
-endif
+set guifont=SourceCodePro,mono
 
-" Switch syntax highlighting on when the terminal has colours.
-if &t_Co > 2 || has("gui_running")
-    syntax on
-    let g:nd_themes = [
-    \ ['sunrise+0', 'vimspectrgrey-light',  'light' ],
-    \ ['sunset+0',  'vimspectr210-dark',    'dark'  ],
-    \ ]
-    let g:nd_latitude = 45
-    if strftime("%m") > 3 && strftime("%m") < 11
-        let g:nd_timeshift = 63
-    else
-        let g:nd_timeshift = 123
-    endif
-endif
-" }}}
 
-" Folding {{{
+" Folding
 set foldenable          " Enable folding.
 set foldlevel=1         " One space counts as an indent.
 set foldlevelstart=10   " Open most folds by default.
 set foldnestmax=10      " 10 nested fold max.
 set foldmethod=indent   " fold based on indent level
-
-" space open/closes folds
-nnoremap <space> za
 " }}}
 
-" Movement {{{
+" Remaps {{{
+" jk is escape
+inoremap jk <esc>
+
+" Searching
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
+" Folding
+" space open/closes folds
+nnoremap <space> za
+
+" Movement
 " Move vertically by visual line
 nnoremap j gj
 nnoremap k gk
@@ -127,136 +78,103 @@ inoremap <C-tab>   <Esc>:tabnext<CR>i
 nnoremap gV `[v`]
 " }}}
 
-" Autogroups {{{
-augroup configgroup
-    autocmd!
-    autocmd VimEnter * highlight clear SignColumn
-
-    autocmd FileType html,javascript,html.handlebars,scss,svg setlocal tabstop=2
-    autocmd FileType html,javascript,html.handlebars,scss,svg setlocal shiftwidth=2
-    autocmd FileType html,javascript,html.handlebars,scss,svg setlocal softtabstop=2
-    autocmd FileType html,javascript,html.handlebars,scss,svg setlocal foldlevel=2
-
-    autocmd FileType python setlocal list
-    autocmd FileType python setlocal listchars=tab:>.,trail:.,extends:#,nbsp:.
-    autocmd FileType python :call Margin()
-    autocmd FileType python nnoremap <leader><tab> :call Yapf()<cr>
-
-    autocmd FileType go nnoremap <leader><tab> :GoFmt<cr>
-
-    autocmd BufEnter Makefile setlocal noexpandtab
-
-    autocmd FileType cobol setlocal nospell
-augroup END
-
-function! Margin() 
-    if exists('+colorcolumn')
-        setlocal colorcolumn=80
-    else
-        au BufWinEnter *.py let w:m2=matchadd('ErrorMsg', '\%.80v.\+', -1)
-    endif
-endfunc
-" }}}
-
-" neocomplete {{{
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-   return neocomplete#close_popup() . "\<CR>"
-endfunction
-
-" <TAB>: completion.
+" Plugin Remaps {{{
+" Deoplete: Go forward through candidates with tab.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
+" Deoplete: Go backwards through candidates with shift+tab.
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
-" Enable omni completion.
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+" ALE: Super-powered indent.
+nnoremap <leader><TAB> :ALEFix<CR>
 
-" Python omni completion
-autocmd FileType python setlocal omnifunc=jedi#completions
-let g:pymode_rope=0
-let g:pymode_lint=0
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_vim_configuration = 0
-let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+" ALE: Super-powered indentation suggestions.
+nnoremap <leader><S-TAB> :ALEFixSuggest<CR>
 
+" ALE: Super-powered go-to-definition.
+nnoremap <leader>gd :ALEGoToTypeDefinitionInVSplit<CR>
 
-" JavaScript omni completion
-let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
+" ALE: Super-powered go-to-next.
+nnoremap <leader>n :ALEFindReferences<CR>
 
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+" NERDtree: Super-powered 'edit file' alternate.
+nnoremap <leader>E :NERDTree<CR>
 
-" Called once right before you start selecting multiple cursors
-function! Multiple_cursors_before()
-    if exists(':NeoCompleteLock')==2
-        exe 'NeoCompleteLock'
-    endif
-endfunction
+" FZF: Super-powered content search.
+nnoremap <leader>/  :Ag<space>
 
-" Called once only when the multiple selection is canceled (default <Esc>)
-function! Multiple_cursors_after()
-    if exists(':NeoCompleteUnlock')==2
-        exe 'NeoCompleteUnlock'
-    endif
-endfunction
+" FZF: Super-powered cursor search.
+nnoremap <leader>#  :Ag <C-R><C-W><CR>
+
+" FZF: Super-powered selection search
+xnoremap <Leader>#  y:Ag <C-R>"<CR>
+
+" FZF: Super-powered 'edit file'.
+nnoremap <leader>e  :FZF<CR><CR>
 " }}}
 
-" Syntastic {{{
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" Plugin Configuration {{{
+" Vim-Plug: Plugin installation and management.
+source ~/.vim/plugins.vimrc
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" Deoplete: Enable on startup.
+let g:deoplete#enable_at_startup = 1
 
-let g:syntastic_javascript_checkers = ['jshint']
+" Deoplete: Use LSP as a source.
+"call deoplete#custom#option('sources', { '_': ['vim_lsp'], })
 
-let g:syntastic_filetype_map = { 'html.handlebars': 'handlebars' }
+
+" ALE: Disable auto-complete in favour of Deoplete.
+let g:ale_completion_enabled = 0
+
+" ALE: Use global tsserver installation
+let g:ale_typescript_tsserver_use_global = 1
+
+" ALE: Enable balloon hovering in GVim.
+if has("gui_running")
+    let g:ale_set_balloons = 1
+endif
+
+" ALE: Generic fixers.
+let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'],}
+
+
+" Vim-Multiple-Cursors: Play nice with deoplete.
+func! Multiple_cursors_before()
+  if deoplete#is_enabled()
+    call deoplete#disable()
+    let g:deoplete_is_enable_before_multi_cursors = 1
+  else
+    let g:deoplete_is_enable_before_multi_cursors = 0
+  endif
+endfunc
+func! Multiple_cursors_after()
+  if g:deoplete_is_enable_before_multi_cursors
+    call deoplete#enable()
+  endif
+endfunc
+
+
+" night-and-day: Set colourschemes by time of day.
+if &t_Co > 2 || has("gui_running")
+    syntax on
+
+    " Set themes for day and night.
+    let g:nd_themes = [
+    \ ['sunrise+0', 'vimspectrgrey-light',  'light' ],
+    \ ['sunset+0',  'vimspectr210-dark',    'dark'  ],
+    \ ]
+
+    " Correct global position for sunrise/sunset times.
+    let g:nd_latitude = 45
+    if strftime("%m") > 3 && strftime("%m") < 11
+        let g:nd_timeshift = 63
+    else
+        let g:nd_timeshift = 123
+    endif
+endif
+
+set rtp+=~/.fzf
 " }}}
 
 " Organization {{{
