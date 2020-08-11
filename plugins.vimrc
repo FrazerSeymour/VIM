@@ -47,5 +47,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
+" Python Autocomplete
+" Plug 'zchee/deoplete-jedi'
+
 call plug#end()
+
 " }}}
