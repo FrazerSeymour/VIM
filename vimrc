@@ -138,6 +138,16 @@ endif
 " ALE: Generic fixers.
 let g:ale_fixers = {'*': ['remove_trailing_lines', 'trim_whitespace'],}
 
+" ALE: Custom LSPs.
+
+" if executable('pyls')
+au User lsp_setup call lsp#register_server({
+    \ 'name': 'pyls',
+    \ 'cmd': {server_info->['pyls']},
+    \ 'whitelist': ['python'],
+    \ })
+" endif
+
 
 " Vim-Multiple-Cursors: Play nice with deoplete.
 func! Multiple_cursors_before()
