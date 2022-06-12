@@ -24,13 +24,8 @@ Plug 'Shougo/deoplete.nvim'  | Plug 'roxma/nvim-yarp' | Plug 'roxma/vim-hug-neov
 Plug 'lighttiger2505/deoplete-vim-lsp'
 
 " Fuzzy-finding.
+Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-
-" Colour Schemes
-Plug 'nightsense/vimspectr'
-
-" Change Colour Schemes by time-of-day.
-Plug 'nightsense/night-and-day'
 
 " Multiple cursors.
 Plug 'terryma/vim-multiple-cursors'

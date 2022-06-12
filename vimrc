@@ -168,30 +168,16 @@ func! Multiple_cursors_after()
   endif
 endfunc
 
-
-" night-and-day: Set colourschemes by time of day.
-if &t_Co > 2 || has("gui_running")
-    syntax on
-
-    " Set themes for day and night.
-    let g:nd_themes = [
-    \ ['sunrise+0', 'vimspectrgrey-light',  'light' ],
-    \ ['sunset+0',  'vimspectr210-dark',    'dark'  ],
-    \ ]
-
-    " Correct global position for sunrise/sunset times.
-    let g:nd_latitude = 45
-    if strftime("%m") > 3 && strftime("%m") < 11
-        let g:nd_timeshift = 63
-    else
-        let g:nd_timeshift = 123
-    endif
-endif
-
 set rtp+=~/.fzf
 " }}}
 
 " Organization {{{
 set modelines=1
+" }}}
+
+" GVIM {{{
+if has("gui_running")
+    source ~/.vim/gvimrc
+endif
 " }}}
 " vim:foldmethod=marker:foldlevel=0
