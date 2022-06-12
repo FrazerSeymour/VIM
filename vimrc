@@ -1,12 +1,12 @@
 " Settings {{{
 " Basic Operation
-set history=1000            " Remember more commands and search history.
-set undolevels=1000         " Use many mucho levels of undo.
-set visualbell              " \
-set t_vb=                   "  Don't beep.
-set noerrorbells            " /
-set nobackup                " No backup file.
-set noswapfile              " No backup file.
+set history=1000    " Remember more commands and search history.
+set undolevels=1000 " Use many mucho levels of undo.
+set visualbell      " \
+set t_vb=           "  Don't beep.
+set noerrorbells    " /
+set nobackup        " No backup file.
+set noswapfile      " No backup file.
 
 " Spaces and Tabs
 set tabstop=4       " Tab width is four.
@@ -26,18 +26,22 @@ set hlsearch    " Highlight search terms.
 set incsearch   " Show search matches as you type.
 
 " Appearance
-set title                       " Change the terminal's title.
-set number                      " Show line numbers.
-set nowrap                      " Don't wrap lines.
-set cursorline                  " Highlight current line.
-set showmatch                   " Highlight matching [{()}].
-set wildmenu                    " Visual autocomplete for command menu.
-set lazyredraw                  " Redraw only when we need to.
-filetype plugin indent on       " Activate filetypes.
-set spell spelllang=en_gb       " Spellcheck.
-set guioptions-=m               " \
-set guioptions-=T               "  Hide GUI Widgets
-set guioptions-=r               " /
+set title                   " Change the terminal's title.
+set number                  " Show line numbers.
+set nowrap                  " Don't wrap lines.
+set cursorline              " Highlight current line.
+set showmatch               " Highlight matching [{()}].
+set wildmenu                " Visual autocomplete for command menu.
+set lazyredraw              " Redraw only when we need to.
+filetype plugin indent on   " Activate filetypes.
+set spell spelllang=en_gb   " Spellcheck.
+set guioptions-=m           " \
+set guioptions-=T           "  Hide GUI Widgets
+set guioptions-=r           " /
+if &t_Co > 2                " \
+    syntax on               "  Enable syntax highlighting when there are colours.
+endif                       " /
+
 
 " Change Font
 set guifont=SourceCodePro,mono
